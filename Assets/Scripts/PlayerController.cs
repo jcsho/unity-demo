@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 2f;
     public float jumpPower = 2f;
     public float groundDistance = 1f;
-    public float turnSpeed = 1f;
     public LayerMask groundLayer;
 
     private Animator _animator;
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviour
         _moveY = Input.GetAxis("Vertical");
 
         ChangeAnimation();
-        LookAt();
         Jump();
     }
 
@@ -60,21 +58,6 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(transform.position, Vector3.down * groundDistance, Color.red);
             _isGrounded = false;
         }
-    }
-
-    private void LookAt()
-    {
-        float mouseX = Input.GetAxis("Mouse X");
-        Vector3 turn;
-        if (mouseX > 0)
-        {
-            turn = Vector3.right;
-        }
-        else
-        {
-            turn = Vector3.left;
-        }
-        transform.rotation *= Quaternion.Slerp(Quaternion.identity, Quaternion.LookRotation(turn), Math.Abs(mouseX) * turnSpeed * Time.deltaTime);
     }
 
     private void ChangeAnimation()

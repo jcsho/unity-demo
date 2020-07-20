@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public float walkSpeed = 2f;
+    public float sprintSpeed = 3f;
     public float jumpPower = 2f;
     public float groundDistance = 1f;
     public LayerMask groundLayer;
@@ -30,15 +31,25 @@ public class PlayerController : MonoBehaviour
         // Get our key input for movement
         _moveX = Input.GetAxis("Horizontal");
         _moveY = Input.GetAxis("Vertical");
+        _playerSpeed = walkSpeed;
 
         ChangeAnimation();
         Jump();
+        Sprint();
     }
 
     private void FixedUpdate()
     {
         Vector3 move = new Vector3(_moveX, 0f, _moveY);
         _rigidbody.MovePosition(_rigidbody.position + move * _playerSpeed * Time.fixedDeltaTime);
+    }
+
+    private void Sprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            _playerSpeed = sprintSpeed;
+        }
     }
 
     private void Jump()

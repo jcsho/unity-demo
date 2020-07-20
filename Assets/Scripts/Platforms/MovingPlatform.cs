@@ -8,6 +8,8 @@ public class MovingPlatform : Platform
 
     public float moveSpeed;
 
+    public float timer = 2f;
+
     private Vector3 _currentLocation;
     private Vector3 _currentDirection;
 
@@ -25,6 +27,19 @@ public class MovingPlatform : Platform
         if (Vector3.Distance(_currentLocation, transform.position) < 0.1)
         {
             ChangeLocation();
+            Countdown();
+        }
+    }
+
+    private void Countdown()
+    {
+        if (timer >= 0.01)
+        {
+            timer -= Time.deltaTime;
+        }
+        else if (timer < 0.01)
+        {
+            timer = 2f;
         }
     }
 
@@ -32,18 +47,24 @@ public class MovingPlatform : Platform
     private void MovePlatform()
     {
         _currentDirection = _currentLocation - transform.position;
-        transform.position += _currentDirection.normalized * moveSpeed * Time.deltaTime;
+        if (Vector3.Distance(_currentLocation, transform.position) > 0.1)
+        {
+            transform.position += _currentDirection.normalized * moveSpeed * Time.deltaTime;
+        }
     }
 
     private void ChangeLocation()
     {
-        if (_currentLocation == endPoint.position)
+        if (timer <= 0.01)
         {
-            _currentLocation = startPoint.position;
-        }
-        else if (_currentLocation == startPoint.position)
-        {
-            _currentLocation = endPoint.position;
+            if (_currentLocation == endPoint.position)
+            {
+                _currentLocation = startPoint.position;
+            }
+            else if (_currentLocation == startPoint.position)
+            {
+                _currentLocation = endPoint.position;
+            }
         }
     }
 }

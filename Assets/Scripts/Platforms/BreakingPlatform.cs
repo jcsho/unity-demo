@@ -6,6 +6,8 @@ public class BreakingPlatform : Platform
 {
     public GameObject[] platformPieces;
     public float timer = 1f;
+    public float explosionPower = 1f;
+    public float explosionRadius = 5f;
 
     private void Update()
     {
@@ -30,6 +32,7 @@ public class BreakingPlatform : Platform
         {
             Rigidbody rb = platformPieces[i].GetComponent<Rigidbody>();
             rb.isKinematic = false;
+            rb.AddExplosionForce(explosionPower, transform.position, explosionRadius);
         }
     }
 

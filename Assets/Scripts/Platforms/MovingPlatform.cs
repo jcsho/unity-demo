@@ -12,23 +12,29 @@ public class MovingPlatform : Platform
 
     private Vector3 _currentLocation;
     private Vector3 _currentDirection;
+    private Rigidbody _rigidbody;
 
     private void Start()
     {
         _currentLocation = endPoint.position;
         _currentDirection = _currentLocation - transform.position;
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovePlatform();
-
+        
         if (Vector3.Distance(_currentLocation, transform.position) < 0.1)
         {
             ChangeLocation();
             Countdown();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlatform();
     }
 
     private void Countdown()
@@ -49,7 +55,8 @@ public class MovingPlatform : Platform
         _currentDirection = _currentLocation - transform.position;
         if (Vector3.Distance(_currentLocation, transform.position) > 0.1)
         {
-            transform.position += _currentDirection.normalized * moveSpeed * Time.deltaTime;
+            //transform.position += _currentDirection.normalized * moveSpeed * Time.deltaTime;
+            _rigidbody.MovePosition(_rigidbody.position + _currentDirection.normalized * moveSpeed * Time.fixedDeltaTime);
         }
     }
 

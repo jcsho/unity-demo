@@ -1741,6 +1741,8 @@ MonoBehaviour:
   - {fileID: 3246084166736439539}
   - {fileID: 3363373085221382063}
   timer: 1
+  explosionPower: 1
+  explosionRadius: 5
 --- !u!1 &8947103519049799613
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,4 +40,10 @@ public class BreakingPlatform : Platform
     {
         return;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
 }

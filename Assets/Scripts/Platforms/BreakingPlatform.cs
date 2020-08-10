@@ -46,4 +46,9 @@ public class BreakingPlatform : Platform
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
+
+    public float GetTimer()
+    {
+        return timer;
+    }
 }

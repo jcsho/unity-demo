@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 
     public float walkSpeed = 2f;
     public float sprintSpeed = 3f;
+    public float rotateSpeed = 10f;
     public float jumpPower = 2f;
     public float groundDistance = 1f;
     public LayerMask groundLayer;
@@ -40,8 +41,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 move = new Vector3(_moveX, 0f, _moveY);
-        _rigidbody.MovePosition(_rigidbody.position + move * _playerSpeed * Time.fixedDeltaTime);
+        Vector3 rotate = new Vector3(0f, _moveX * rotateSpeed, 0f);
+        Quaternion deltaRotation = Quaternion.Euler(rotate * Time.fixedDeltaTime);
+        _rigidbody.MoveRotation(_rigidbody.rotation * deltaRotation);
+
+        _rigidbody.MovePosition(_rigidbody.position + transform.forward * _moveY * _playerSpeed * Time.fixedDeltaTime);
     }
 
     private void Sprint()

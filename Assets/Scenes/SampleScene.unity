@@ -187,7 +187,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79190882}
-  m_LocalRotation: {x: -0.60375035, y: 0.00000004337529, z: 0.000000032850878, w: 0.7971735}
+  m_LocalRotation: {x: -0.6037504, y: -0.000000048007642, z: -0.000000036359257, w: 0.7971735}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -225,26 +225,6 @@ Transform:
   m_Father: {fileID: 2034712370}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &262505233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2124773614909736851, guid: 6c82038054c0d944cb556bb362f3a903,
-    type: 3}
-  m_PrefabInstance: {fileID: 2124773615374874043}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &262505238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262505233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fabf06a9e6fae54b914047d28ec4a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform: {fileID: 706238260}
-  flashingColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &345487753
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +255,26 @@ Transform:
   m_Father: {fileID: 2034712370}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &456425807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8404235972574805985, guid: 3ed176998a8bd104d85dd1a0295b3e9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1971893290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &456425809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456425807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fabf06a9e6fae54b914047d28ec4a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 706238260}
+  flashingColor: {r: 1, g: 0.042452812, b: 0.042452812, a: 0}
 --- !u!4 &475787817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2124773614909736850, guid: 6c82038054c0d944cb556bb362f3a903,
@@ -493,7 +493,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1971893290}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 456425807}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bce46cc46aef77347b98c1d2523ff996, type: 3}
@@ -702,7 +702,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.12787513, y: 0.006084957, z: -0.00078457076, w: 0.9917713}
+  m_LocalRotation: {x: 0.12785634, y: 0.018062126, z: -0.0023288606, w: 0.9916255}
   m_LocalPosition: {x: 17.45, y: 3.8601046, z: 11.508771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -822,10 +822,10 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 60
     m_AccelTime: 0.1
     m_DecelTime: 0.1
-    m_InputAxisName: Mouse X
+    m_InputAxisName: Horizontal
     m_InputAxisValue: 0
     m_InvertInput: 0
     m_MinValue: -180
@@ -947,6 +947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 2
   sprintSpeed: 3
+  rotateSpeed: 60
   jumpPower: 300
   groundDistance: 0.2
   groundLayer:
@@ -1299,7 +1300,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750809730}
-  m_LocalRotation: {x: 0.229233, y: 0.0063531264, z: -0.0014962209, w: 0.9733497}
+  m_LocalRotation: {x: 0.22919486, y: 0.018858032, z: -0.004441243, w: 0.97318774}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

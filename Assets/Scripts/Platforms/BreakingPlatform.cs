@@ -51,4 +51,14 @@ public class BreakingPlatform : Platform
     {
         return timer;
     }
+
+    public MeshRenderer[] GetPlatformMeshes()
+    {
+        MeshRenderer[] result = new MeshRenderer[platformPieces.Length];
+        for (int i = 0; i < platformPieces.Length; i++)
+        {
+            result[i] = platformPieces[i].GetComponent<MeshRenderer>();
+        }
+        return result;
+    }
 }

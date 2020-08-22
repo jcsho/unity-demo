@@ -5,9 +5,23 @@ using UnityEngine;
 public class BreakingPlatform : Platform
 {
     public GameObject[] platformPieces;
-    public float timer = 1f;
+    public float timer;
     public float explosionPower = 1f;
     public float explosionRadius = 5f;
+
+    private Transform[] _initialPlatformPositions;
+    private float _initialTimer;
+
+    private void Start()
+    {
+        _initialPlatformPositions = new Transform[platformPieces.Length];
+        for (int i = 0; i < platformPieces.Length; i++)
+        {
+            _initialPlatformPositions[i] = platformPieces[i].transform;
+        }
+
+        _initialTimer = timer;
+    }
 
     private void Update()
     {
@@ -60,5 +74,21 @@ public class BreakingPlatform : Platform
             result[i] = platformPieces[i].GetComponent<MeshRenderer>();
         }
         return result;
+    }
+
+    public void ResetPlatform()
+    {
+        timer = _initialTimer;
+        for (int i = 0; i < platformPieces.Length; i++)
+        {
+            Rigidbody rb = platformPieces[i].GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+
+            //rb.MovePosition(_initialPlatformPositions[i].position);
+
+            platformPieces[i].transform.localPosition = _initialPlatformPositions[i].localPosition;
+            platformPieces[i].transform.localRotation = _initialPlatformPositions[i].localRotation;
+            platformPieces[i].transform.localScale = _initialPlatformPositions[i].localScale;
+        }
     }
 }

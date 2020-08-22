@@ -7,6 +7,6 @@ public class Platform : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name + " has landed on " + gameObject.name);
+        // Debug.Log(collision.gameObject.name + " has landed on " + gameObject.name);
     }
 }

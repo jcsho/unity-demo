@@ -5,12 +5,14 @@ public class Respawn : MonoBehaviour
 
     public PlayerController player;
     public Transform respawnPoint;
+    public BreakingPlatform platform;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             MoveToSpawn();
+            platform.ResetPlatform();
         }
     }
 

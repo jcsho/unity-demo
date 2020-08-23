@@ -9,15 +9,18 @@ public class BreakingPlatform : Platform
     public float explosionPower = 1f;
     public float explosionRadius = 5f;
 
-    private Transform[] _initialPlatformPositions;
+    private Vector3[] _initialPlatformPositions;
+    private Quaternion[] _initialPlatformRotations;
     private float _initialTimer;
 
     private void Start()
     {
-        _initialPlatformPositions = new Transform[platformPieces.Length];
+        _initialPlatformPositions = new Vector3[platformPieces.Length];
+        _initialPlatformRotations = new Quaternion[platformPieces.Length];
         for (int i = 0; i < platformPieces.Length; i++)
         {
-            _initialPlatformPositions[i] = platformPieces[i].transform;
+            _initialPlatformPositions[i] = platformPieces[i].transform.localPosition;
+            _initialPlatformRotations[i] = platformPieces[i].transform.localRotation;
         }
 
         _initialTimer = timer;
@@ -79,16 +82,13 @@ public class BreakingPlatform : Platform
     public void ResetPlatform()
     {
         timer = _initialTimer;
+
         for (int i = 0; i < platformPieces.Length; i++)
         {
             Rigidbody rb = platformPieces[i].GetComponent<Rigidbody>();
             rb.isKinematic = true;
-
-            //rb.MovePosition(_initialPlatformPositions[i].position);
-
-            platformPieces[i].transform.localPosition = _initialPlatformPositions[i].localPosition;
-            platformPieces[i].transform.localRotation = _initialPlatformPositions[i].localRotation;
-            platformPieces[i].transform.localScale = _initialPlatformPositions[i].localScale;
+            platformPieces[i].transform.localPosition = _initialPlatformPositions[i];
+            platformPieces[i].transform.localRotation = _initialPlatformRotations[i];
         }
     }
 }

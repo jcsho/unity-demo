@@ -17,6 +17,7 @@ public class BreakingPlatform : Platform
     {
         _initialPlatformPositions = new Vector3[platformPieces.Length];
         _initialPlatformRotations = new Quaternion[platformPieces.Length];
+
         for (int i = 0; i < platformPieces.Length; i++)
         {
             _initialPlatformPositions[i] = platformPieces[i].transform.localPosition;

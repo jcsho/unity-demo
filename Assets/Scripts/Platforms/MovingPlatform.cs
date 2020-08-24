@@ -13,12 +13,14 @@ public class MovingPlatform : Platform
     private Vector3 _currentLocation;
     private Vector3 _currentDirection;
     private Rigidbody _rigidbody;
+    private float _timerLength;
 
     private void Start()
     {
         _currentLocation = endPoint.position;
         _currentDirection = _currentLocation - transform.position;
         _rigidbody = GetComponent<Rigidbody>();
+        _timerLength = timer;
     }
 
     // Update is called once per frame
@@ -45,7 +47,7 @@ public class MovingPlatform : Platform
         }
         else if (timer < 0.01)
         {
-            timer = 2f;
+            timer = _timerLength;
         }
     }
 

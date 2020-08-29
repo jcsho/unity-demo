@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MovingPlatform : Platform
+public class MovingPlatform : Platform, ITimer
 {
 
     public Transform startPoint;
@@ -39,7 +39,7 @@ public class MovingPlatform : Platform
         MovePlatform();
     }
 
-    private void Countdown()
+    public void Countdown()
     {
         if (timer >= 0.01)
         {
@@ -75,5 +75,10 @@ public class MovingPlatform : Platform
                 _currentLocation = endPoint.position;
             }
         }
+    }
+
+    public float GetTimer()
+    {
+        return timer;
     }
 }
